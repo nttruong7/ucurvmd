@@ -9,6 +9,7 @@ for res = 1:param_udct.res
     for dir = 1: param_udct.dim
         for ang = 1:1:length(udctwin{res+1}{dir})
             cband = upsamp(coeff{res+1}{dir}{ang}, param_udct.dec{res}(dir,:));
+            cband = cband./sqrt(2*prod(param_udct.dec{res}(dir,:)));
             cband = prod(param_udct.dec{res}(dir,:))*fftn(cband);
             imf(udctwin{res+1}{dir}{ang}(:,1)) = imf(udctwin{res+1}{dir}{ang}(:,1)) ...
                 + cband(udctwin{res+1}{dir}{ang}(:,1)).*udctwin{res+1}{dir}{ang}(:,2);

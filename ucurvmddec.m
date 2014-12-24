@@ -30,6 +30,7 @@ for res = 1:param_udct.res
             % fband = imf.*subband{dir}{ang};
             cband = ifftn(fband);
             coeff{res+1}{dir}{ang} = downsamp(cband,param_udct.dec{res}(dir,:));
+            coeff{res+1}{dir}{ang} = sqrt(2*prod(param_udct.dec{res}(dir,:))) * coeff{res+1}{dir}{ang};
         end
     end
 end

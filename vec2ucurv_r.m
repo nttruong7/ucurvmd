@@ -1,7 +1,7 @@
-function y = vec2ucurv(yind, mark)
-% VEC2UCURV   Convert the output of the UDCT into a vector form
+function y = vec2ucurv_r(yind, mark)
+% VEC2UCURV   Convert a real vector back to UDCT coefficents
 %
-%       vec2ucurv(yind, mark)
+%       y = vec2ucurv_r(yind, mark)
 %
 % Input:
 %   y:  an output of the UDCT
@@ -19,12 +19,13 @@ y{1}{1} = reshape(tmp, mark(1,2), mark(1,3));
 % band index
 
 for min = 2:size(mark,1) % for each consider band
-	%	mark(min-1,1)+1
-	%	mark(min,1)
-	%	yind(mark(min,1))
-	tmp = yind(mark(min-1,1)+1:mark(min,1));
-
-        y{mark(min,4)}{mark(min,5)}{mark(min,6)} = reshape(tmp,mark(min,2),mark(min,3));
-        
+    %	mark(min-1,1)+1
+    %	mark(min,1)
+    %	yind(mark(min,1))
+    tmpr = yind(mark(min-1,1)+1:mark(min,1));
+    tmp = tmpr(1:2:end) + sqrt(-1)*tmpr(2:2:end);
+    
+    y{mark(min,4)}{mark(min,5)}{mark(min,6)} = reshape(tmp,mark(min,2),mark(min,3));
+    
 end
 

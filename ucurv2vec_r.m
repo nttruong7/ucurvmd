@@ -1,7 +1,7 @@
-function [yind, mark] = ucurv2vec(y)
-% UCURV2VEC   Convert the output of the UDCT into a vector form
+function [yind, mark] = ucurv2vec_r(y)
+% UCURV2VEC_R   Convert the output of the UDCT into a real vector form
 %
-%       [yind, mark] = ucurv2vec(y)
+%       [yind, mark] = ucurv2vec_r(y)
 %
 % Input:
 %   y:  an output of the UDCT
@@ -14,7 +14,7 @@ function [yind, mark] = ucurv2vec(y)
 
 % take out the directional subband complex amplitude value
 tmp = y{1}{1};
-yind = tmp(:);
+yind = real(tmp(:)); % low pass always real 
 % band index
 min = 1;
 mark(min, 1) = prod(size(tmp));
@@ -29,9 +29,13 @@ for in = 2:length(y) % for each consider resolution
         for d = 1:length(y{in}{dim})
             min = min+1;
             tmp = y{in}{dim}{d};
+            len = length(tmp(:));
+            clear tmpr;
+            tmpr(1:2:2*len) = real(tmp(:));
+            tmpr(2:2:2*len) = imag(tmp(:));
             
             % first column is the ending point of the subband
-            mark(min,1) = mark(min-1,1)+prod(size(tmp));
+            mark(min,1) = mark(min-1,1)+2*len;
             % second column is the row size of the subband
             mark(min,2) = size(tmp,1);
             % third column is the column size of the subband
@@ -48,7 +52,7 @@ for in = 2:length(y) % for each consider resolution
             %
             % tmp3 = [(tmp(:));
             
-            yind = [yind; tmp(:)];
+            yind = [yind; tmpr(:)];
         end
     end
 end

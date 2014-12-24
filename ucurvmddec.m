@@ -9,16 +9,18 @@ fband(udctwin{1}{1}(:,1)) = imf(udctwin{1}{1}(:,1)).* ...
 cband = ifftn(fband);
 coeff{1}{1} = downsamp(cband,2^(param_udct.res-1)*ones(1,param_udct.dim ));
 
-fvec = imf(udctwin{1}{1}(:,1)).*udctwin{1}{1}(:,2);
-% convert the window sparse vector to sparse coordinate
-dvec = vec2coord(udctwin{1}{1}(:,1), param_udct.size);
-% down sample the sparse coordinate
-szdown = param_udct.size ./ (2^(param_udct.res-1)*ones(1,param_udct.dim ));
-dcorddown = mod(dvec-1,kron(szdown,ones(size(dvec,1),1))) + 1;
-dvecdown = coord2vec(dcorddown, szdown);
-fband = zeros(szdown);
-fband(dvecdown) = fvec;
-cband = ifftn(fband);
+coeff{1}{1} = sqrt(prod(2^(param_udct.res-1)*ones(1,param_udct.dim )))*coeff{1}{1};
+
+% fvec = imf(udctwin{1}{1}(:,1)).*udctwin{1}{1}(:,2);
+% % convert the window sparse vector to sparse coordinate
+% dvec = vec2coord(udctwin{1}{1}(:,1), param_udct.size);
+% % down sample the sparse coordinate
+% szdown = param_udct.size ./ (2^(param_udct.res-1)*ones(1,param_udct.dim ));
+% dcorddown = mod(dvec-1,kron(szdown,ones(size(dvec,1),1))) + 1;
+% dvecdown = coord2vec(dcorddown, szdown);
+% fband = zeros(szdown);
+% fband(dvecdown) = fvec;
+% cband = ifftn(fband);
 
 
 for res = 1:param_udct.res

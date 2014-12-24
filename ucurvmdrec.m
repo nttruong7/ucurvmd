@@ -20,7 +20,7 @@ end
 imfl = zeros(param_udct.size);
 decimlow = 2^(param_udct.res-1)*ones(1,param_udct.dim);
 cband = upsamp(coeff{1}{1}, decimlow );
-cband = prod(decimlow)*fftn(cband);
+cband = sqrt(prod(decimlow))*fftn(cband);
 imfl(udctwin{1}{1}(:,1)) = cband(udctwin{1}{1}(:,1)).* ...
     udctwin{1}{1}(:,2);
 

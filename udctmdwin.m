@@ -221,5 +221,4 @@ for res = 1:param_udct.res
    end
 end
 
-snapnow;
 

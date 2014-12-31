@@ -1,7 +1,7 @@
 function [udctwin, param_udct] = udctmdwin(param_udct)
 
 % =====================================================================
-% UCURVMDWIN code
+% udctMDWIN code
 % =====================================================================
 
 % create the 1d grid along each dimension

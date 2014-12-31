@@ -1,7 +1,6 @@
-function coeff = ucurvmddec(im, param_udct, udctwin)
+function coeff = udctmddec(im, param_udct, udctwin)
 
 imf = fftn(im);
-
 
 fband = 0*imf;
 fband(udctwin{1}{1}(:,1)) = imf(udctwin{1}{1}(:,1)).* ...

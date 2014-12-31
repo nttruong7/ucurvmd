@@ -14,11 +14,11 @@ param_udct.winthresh = 10^(-5);
 % im = rand(param_udct.size);
 im = mkZonePlate(param_udct.size);
 
-coeff = ucurvmddec(im, param_udct, udctwin)
+coeff = udctmddec(im, param_udct, udctwin)
 
-showucurv(coeff);
+showudct(coeff);
 
-im2 = ucurvmdrec(coeff, param_udct, udctwin);
+im2 = udctmdrec(coeff, param_udct, udctwin);
 
 % max(abs(im(:)-im2(:)))
 snr(im,im2)
@@ -64,9 +64,9 @@ param_udct.winthresh = 10^(-5);
 
 im = rand(param_udct.size);
 
-coeff = ucurvmddec(im, param_udct, udctwin)
+coeff = udctmddec(im, param_udct, udctwin)
 
-im2 = ucurvmdrec(coeff, param_udct, udctwin);
+im2 = udctmdrec(coeff, param_udct, udctwin);
 
 max(abs(im(:)-im2(:)))
 

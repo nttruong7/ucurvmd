@@ -1,4 +1,4 @@
-function im = ucurv_lev_image(y, gap, gridI)
+function im = udct_lev_image(y, gap, gridI)
 % DFBIMAGE    Produce an image from the result subbands of DFB
 %
 %	im = dfbimage(y, [gap, gridI])

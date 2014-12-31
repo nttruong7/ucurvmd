@@ -1,7 +1,7 @@
-function [yind, mark] = ucurv2vec_r(y)
-% UCURV2VEC_R   Convert the output of the UDCT into a real vector form
+function [yind, mark] = udct2vec_r(y)
+% udct2VEC_R   Convert the output of the UDCT into a real vector form
 %
-%       [yind, mark] = ucurv2vec_r(y)
+%       [yind, mark] = udct2vec_r(y)
 %
 % Input:
 %   y:  an output of the UDCT
@@ -10,7 +10,7 @@ function [yind, mark] = ucurv2vec_r(y)
 %   yind :  1-D vector that contains all UDCT coefficients
 %   mark :  starting point of each change in band in yind
 %
-% See also:	UCURV2VEC
+% See also:	udct2VEC
 
 % take out the directional subband complex amplitude value
 tmp = y{1}{1};

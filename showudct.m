@@ -1,4 +1,4 @@
-function displayIm = showucurv(y)
+function displayIm = showudct(y)
 % SHOWPDFB   Show PDFB coefficients. 
 %
 %       showpdfb(y, [scaleMode, displayMode, ...
@@ -92,7 +92,7 @@ nHeight = size(y{1}{1},1);
 
 % All the contourlet layers
 for i = 2 : nLayers
-    z{i} = ucurv_lev_image(y{i},1);
+    z{i} = udct_lev_image(y{i},1);
     nWidth = nWidth + size(z{i}, 2);
     nHeight = max(nHeight, size(z{i}, 1));
 end

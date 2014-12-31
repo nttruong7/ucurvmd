@@ -1,7 +1,7 @@
-function y = vec2ucurv(yind, mark)
-% VEC2UCURV   Convert the output of the UDCT into a vector form
+function y = vec2udct(yind, mark)
+% VEC2udct   Convert the output of the UDCT into a vector form
 %
-%       vec2ucurv(yind, mark)
+%       vec2udct(yind, mark)
 %
 % Input:
 %   y:  an output of the UDCT
@@ -10,7 +10,7 @@ function y = vec2ucurv(yind, mark)
 %   yind :  1-D vector that contains all UDCT coefficients
 %   mark :  starting point of each change in band in yind
 %
-% See also:	ucurv2vec
+% See also:	udct2vec
 
 % take out the directional subband complex amplitude value
 tmp = yind(1:mark(1,1));

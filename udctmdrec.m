@@ -1,7 +1,7 @@
-function im2 = ucurvmdrec(coeff, param_udct, udctwin)
+function im2 = udctmdrec(coeff, param_udct, udctwin)
 
 % =====================================================================
-% UCURVMDREC code
+% udctMDREC code
 % =====================================================================
 imf = zeros(param_udct.size);
 

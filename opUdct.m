@@ -79,12 +79,12 @@ function y = opUdct_intrnl(x,mode)
 
 if mode == 1
     % Analysis mode
-    % coeff = ucurvmddec_mat(resize(x,param_int.size) , param_int, udctwin);
-    % [y, mark] = ucurv2vec_r(coeff);
-    y = ucurvmddec_mat(x);
+    % coeff = udctmddec_mat(resize(x,param_int.size) , param_int, udctwin);
+    % [y, mark] = udct2vec_r(coeff);
+    y = udctmddec_mat(x);
 else
     % Synthesis mode
-    [y] = ucurvmdrec_mat(x);
+    [y] = udctmdrec_mat(x);
     
 end
 end

@@ -24,7 +24,7 @@ im2 = ucurvmdrec(coeff, param_udct, udctwin);
 snr(im,im2)
 
 
-
+%%
 % close all; clear all;
 % param_udct.dim = 3;
 % param_udct.size = 4*[32 32 32];

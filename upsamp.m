@@ -1,4 +1,5 @@
 function D = upsamp(F, decim)
+%
 % Upsampling F in decim
 % upsamp can work in any dimension
 % decim must be vector equal to dimension of F

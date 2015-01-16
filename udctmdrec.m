@@ -1,5 +1,21 @@
 function im2 = udctmdrec(coeff, param_udct, udctwin)
-
+%
+% UDCTMREC :  Inverse UDCT transfrom - Reconstruction operator
+%
+%       im2 = udctmdrec(coeff, param_udct, udctwin)
+%
+% Input:
+%	im2:	    Reconstructed data from curvelet domain
+%               
+% Output:
+%	coeff:	    UDCT coefficient in Matlab cell structure
+%	param_udct:	A structure to contain all information about current
+%               curvelet transform configuration
+%   udctwin:    Calculated curvelet windows for current UDCT transform.
+%               Computed by UDCTMDWIN subroutine
+%   
+% See also:     UDCTMDDEC, UDCTMDWIN, README.TXT
+%
 % =====================================================================
 % udctMDREC code
 % =====================================================================

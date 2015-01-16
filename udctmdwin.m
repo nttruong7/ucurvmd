@@ -1,5 +1,20 @@
 function [udctwin, param_udct] = udctmdwin(param_udct)
-
+%
+% UDCTMDWIN :  Calculate curvelet windows functions for UDCT transform
+%
+%       [udctwin, param_udct] = udctmdwin(param_udct)
+%
+% Input:
+%	param_udct:	A structure to contain all information about current
+%               curvelet transform configuration
+%
+% Output:
+%   udctwin:    Calculated curvelet windows for current UDCT transform.
+%               Matrix data stored in sparse form. 
+%	param_udct:	Updated param_udct structure
+%   
+% See also:     UDCTMDDEC, UDCTMDREC, README.TXT
+%
 % =====================================================================
 % udctMDWIN code
 % =====================================================================
@@ -99,7 +114,7 @@ for res = 1:param_udct.res
             end
         end
         lent = size(ang_in,1);
-        ang_inmax = param_udct.cfg(res, Mdir{res}(in1,:))
+        ang_inmax = param_udct.cfg(res, Mdir{res}(in1,:));
         % lent is the smallest number of windows need to calculated on each
         % pyramid
         % ang_inmax is M-1 vector contain number of angle function per each

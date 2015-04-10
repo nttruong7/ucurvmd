@@ -8,9 +8,12 @@ function [yind, mark] = udct2vec(y)
 %
 % Output:
 %   yind :  1-D vector that contains all UDCT coefficients
-%   mark :  starting point of each change in band in yind
-%
-% See also:	udct2VEC
+%   mark :  A data structure to describe the relationship between UDCT 
+%           vector UDCT cell formats
+%    
+%   mark is an 2D array, each row is equivalent to one curvelet subband
+% 
+% See also:	UDCT2VEC
 
 % take out the directional subband complex amplitude value
 tmp = y{1}{1};

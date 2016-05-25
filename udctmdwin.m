@@ -246,3 +246,27 @@ for res = 1:param_udct.res
     end
 end
 
+
+% sort the window 
+for res = 2:param_udct.res+1
+    for pyr = 1:param_udct.dim
+        % take out the angle index list
+        list = param_udct.ind{res}{pyr};
+        % map it to a number
+        mult = 1;
+        nlist = zeros(size(list,1), 1);
+        for d = size(list,2):-1:1
+            for b = 1:size(list,1)
+                nlist(b) = nlist(b) + mult*list(b,d);
+            end
+            mult = mult*100;
+        end
+        [b, ix] = sort(nlist);
+        for b = 1:size(list,1)
+            newind(b,:) = list(ix(b),:);
+            newwin{b} = udctwin{res}{pyr}{ix(b)};
+        end
+        param_udct.ind{res}{pyr} = newind;
+        udctwin{res}{pyr} = newwin;
+    end
+end

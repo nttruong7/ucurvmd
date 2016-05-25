@@ -1,4 +1,4 @@
-function displayIm = showudct(y)
+function displayIm = showudct(y, percentile)
 % SHOWPDFB   Show PDFB coefficients. 
 %
 %       showpdfb(y, [scaleMode, displayMode, ...
@@ -64,11 +64,14 @@ function displayIm = showudct(y)
 %  03/10/2004  Adding code to handle nuDFB
 
 % Gap between subbands
-if ~exist('subbandgap', 'var')
-    subbandgap = 1;  
-elseif subbandgap < 1
-    display ('Warning! subbandgap must be no less than 1! Its default value is 1!');
-    subbandgap = 1;
+if exist('percentile', 'var')
+    [yind, mark] = udct2vec(y);
+    n = ceil(length(yind)*percentile/100);
+    ytmp = sort(abs(yind),'descend');
+    thr = ytmp(n);
+    ytmp = yind*0;
+    ytmp(abs(yind) > thr) = 1;
+    y = vec2udct(ytmp,mark);
 end
 
 % Input structure analysis. 

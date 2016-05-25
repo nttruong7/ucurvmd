@@ -22,7 +22,7 @@ udctmdwin.m
 
 README.txt    
 opUdct.m
-vec2udct.m
+vec2udct.m     Convert the output of the UDCT into a vector form
 udct2vec.m    
 udct2vec_r.m          
 vec2udct_r.m
@@ -34,7 +34,7 @@ demodecrec.m
 adapt_grid.m  
 coord2vec.m   
 vec2coord.m
-fun_meyer.m    
+fun_meyer.m   Return 1-D meyer function from x sample 
 udctmddec_mat.m  
 downsamp.m    
 upsamp.m

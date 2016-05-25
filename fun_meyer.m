@@ -1,11 +1,12 @@
 function y = fun_meyer(x, param)
 % FUN_MEYER   Return 1-D meyer function from x sample 
+%             can be used to create smooth window
 %
 %	y = fun_meyer(x, param)
 %
 % Input:
 %   x     : Sampling points of meyer function  
-%   param : Parameter of the meyer function, length 4tion step
+%   param : Parameter of the meyer function, length 4 step
 %
 % Output:
 %   y     : Return of meyer function sampling at x

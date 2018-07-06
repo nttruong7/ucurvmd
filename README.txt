@@ -42,7 +42,7 @@ angle_fun.m
 angle_kron.m  
 udct_lev_image.m  
 udctmdrec_mat.m  
-fftflip.m                  
+fftflip.m   Flip the matrix and shift to make FFT compatible
 
 * External utilities : for use without UDCT
 
